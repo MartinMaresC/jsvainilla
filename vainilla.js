@@ -1,18 +1,27 @@
 const barra = document.getElementById("barra");
-    const barra2 = document.getElementById("barra2");
-    const pixeles = document.getElementById("pixeles");
+const pixeles = document.getElementById("pixeles");
 
-    // Update the position of "barra" based on the scroll position
-    function updateBarPositions() {
-      if (window.scrollY <= 1500){
-        barra.style.marginTop = (window.scrollY/5) + "%";
-      //barra2.style.top = (window.scrollY + 50) + "px"; // Adjust for the height of barra
-      }
-      pixeles.innerHTML = window.scrollY;
+// Update the position of "barra" based on the scroll position
+function updateBarPositions() {
+  const scrollY = window.scrollY;
+  const barraBottom = barra.getBoundingClientRect().bottom;
+  const viewportHeight = window.innerHeight;
+
+  if (scrollY <= 500 && barraBottom !== viewportHeight) {
+    barra.style.top = (scrollY * 4) + "px";
+
+    // Check if the bottom of the barra is at the bottom of the viewport
+    if (barraBottom === viewportHeight) {
+      // Barra has reached the bottom of the viewport
+      console.log("Barra reached the bottom!");
     }
+  }
 
-    // Attach the update function to the scroll event
-    document.addEventListener("scroll", updateBarPositions);
+  pixeles.innerHTML = scrollY;
+}
 
-    // Initial call to set the initial position
-    updateBarPositions();
+// Attach the update function to the scroll event
+document.addEventListener("scroll", updateBarPositions);
+
+// Initial call to set the initial position
+updateBarPositions();
