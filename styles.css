@@ -1,23 +1,28 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
+  padding: 0;
+  margin: 0;
+  background: black;
+}
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
 
-  #divOut {
-    height: 500px;
-    width: 100px;
-    background: blue;
-    overflow: auto;
-    display: flex;
-    margin-left: 50%;
-    position: relative;
-  }
-  
-  #divIn {
-    height: 50px;
-    width: 80px;
-    background: rgba(255, 0, 0, 0.404);
-    position: absolute;
-    top: 0;
-  }
-  
+#divOut {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+
+#divIn {
+  height: 50px;
+  width: 300px;
+  background: red;
+}
+
+img{
+  width: 300px;
+}

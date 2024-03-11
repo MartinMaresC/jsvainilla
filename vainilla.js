@@ -7,8 +7,8 @@ function updateBarPositions() {
   const barraBottom = barra.getBoundingClientRect().bottom;
   const viewportHeight = window.innerHeight;
 
-  if (scrollY <= 500 && barraBottom !== viewportHeight) {
-    barra.style.top = (scrollY * 4) + "px";
+  if (scrollY > 0 ) {
+    barra.style.MarginTop = (scrollY * 8) + "px";
 
     // Check if the bottom of the barra is at the bottom of the viewport
     if (barraBottom === viewportHeight) {
